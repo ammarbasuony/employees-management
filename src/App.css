@@ -1,38 +1,265 @@
-.App {
-  text-align: center;
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background-color: #e4e4e4;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.Employees {
+  width: 900px;
+  padding: 50px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.Employees .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.Employees .header button {
+  background-color: #454545;
+  color: #fff;
+  border: none;
+  height: 46px;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  width: 145px;
+  border-radius: 8px;
+}
+
+.Employees .title {
+  display: flex;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #454545;
+}
+
+.Employees .title img {
+  margin-right: 15px;
+}
+
+.Employees .table-wrapper {
+  background-color: #fff;
+  padding: 20px 30px;
+  border-radius: 30px;
+}
+
+.Employees .table {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  padding: 0;
+}
+
+.Employees .table li {
+  border-radius: 3px;
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.Employees .table .table-header {
+  background-color: #00362e;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.Employees .table .open-status-actions {
+  background-color: #00362e;
+  color: #fff;
+  width: 48%;
+  padding: 6px;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+}
+
+.Employees .table .table-row {
+  background-color: #ffffff;
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+}
+
+.Employees .table .col-1 {
+  flex-basis: 20%;
+}
+
+.Employees .table .col-2 {
+  flex-basis: 30%;
+}
+
+.Employees .table .col-3 {
+  flex-basis: 25%;
+}
+
+.Employees .table .col-4 {
+  flex-basis: 25%;
+}
+
+.Employees .table .change-status {
+  padding: 0;
+}
+
+.Employees .table .change-status .status {
+  width: 200px;
+  height: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: #ffffff;
+  border-top: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.Employees .table .change-status .status.active {
+  background-color: #00362e;
+  color: #ffffff;
+}
+
+.Employees .table .change-status .status:last-child {
+  border-right: 1px solid #e2e2e2;
+}
+
+.Employees .table .change-status .status:first-child {
+  border-left: 1px solid #e2e2e2;
+}
+
+.Employees .table .change-status .status.active::before {
+  border-left: 20px solid #00362e;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  bottom: 0;
+  right: -20px;
+}
+
+.Employees .table .change-status .status:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-left: 20px solid #e2e2e2;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
+
+.Employees .table .change-status .status:before {
+  content: "";
+  position: absolute;
+  right: -18px;
+  bottom: 2px;
+  width: 0;
+  height: 0;
+  z-index: 99;
+  border-left: 18px solid white;
+  border-top: 18px solid transparent;
+  border-bottom: 18px solid transparent;
+}
+
+.Employees .table .change-status .status:last-child::before,
+.Employees .table .change-status .status:first-child::after {
+  content: unset;
+}
+
+@media all and (max-width: 767px) {
+  .Employees .table .table-header {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+
+  .Employees .table li {
+    display: block;
   }
+
+  .Employees .table .col {
+    flex-basis: 100%;
+  }
+
+  .Employees .table .col {
+    display: flex;
+    padding: 10px 0;
+  }
+
+  .Employees .table .col:before {
+    color: #6c7a89;
+    padding-right: 10px;
+    content: attr(data-label);
+    flex-basis: 50%;
+    text-align: right;
+  }
+}
+
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.popup .modal {
+  margin-top: 50px;
+  width: 60%;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  height: fit-content;
+  position: relative;
+}
+
+.popup .modal .close {
+  position: absolute;
+  right: 15px;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 0px 9px;
+  background-color: #9c9c9c;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  line-height: 38px;
+}
+
+.popup .modal form {
+  display: flex;
+  gap: 10px;
+}
+
+.popup .modal form .form-field {
+  flex-grow: 1;
+  display: inherit;
+}
+
+.popup .modal form .form-field select,
+.popup .modal form .form-field input {
+  width: 100%;
+  border: 1px solid #e2e2e2;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: "Poppins",
+  sans-serif;
+}
+
+.popup .modal form .form-field button {
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  background-color: #00362e;
+  color: #fff;
+  cursor: pointer;
 }
